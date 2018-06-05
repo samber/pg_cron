@@ -24,7 +24,7 @@ Scheduling is based on UTC time.
 
 Insert a new row into table `foo` every weekday at 7am:
 
-```
+```sql
 SELECT * FROM pg_cron_create_task('0 0 7 ? * MON-FRI', 'INSERT INTO foo (bar) VALUES (42);');
                   id                  |     schedule      |               query                |       next_exec
 --------------------------------------+-------------------+------------------------------------+------------------------
@@ -34,7 +34,7 @@ SELECT * FROM pg_cron_create_task('0 0 7 ? * MON-FRI', 'INSERT INTO foo (bar) VA
 
 List tasks:
 
-```
+```sql
 SELECT * FROM pg_cron_get_task_list();
                   id                  |     schedule      |               query               |       next_exec
 --------------------------------------+-------------------+-----------------------------------+------------------------
@@ -44,7 +44,7 @@ SELECT * FROM pg_cron_get_task_list();
 
 Drop task:
 
-```
+```sql
 SELECT * FROM pg_cron_drop_task('a63b67fd-f739-48de-bcea-86e67f112c41');
  pg_cron_drop_task
 -------------------
@@ -54,7 +54,7 @@ SELECT * FROM pg_cron_drop_task('a63b67fd-f739-48de-bcea-86e67f112c41');
 
 ## Install
 
-```
+```sh
 cd /usr/lib/postgresql/10/lib
 git clone git@github.com:samber/pg_cron.git
 cd pg_cron
@@ -63,7 +63,7 @@ make install
 
 Append `shared_preload_libraries = 'pg_cron'` to your postgresql.conf and restart PG.
 
-```
+```sh
 psql --command 'CREATE EXTENSION pg_cron CASCADE'
 ```
 
@@ -73,12 +73,12 @@ $ pg_ctl restart
 
 ## Demo
 
-```
+```sh
 $ docker-compose build
 $ docker-compose up -d
 ````
 
-```
+```sh
 $ docker-compose exec postgres psql -U postgres --command 'CREATE EXTENSION pg_cron CASCADE'
 NOTICE:  installing required extension "pgcrypto"
 CREATE EXTENSION
@@ -86,7 +86,7 @@ CREATE EXTENSION
 $ docker-compose restart
 ```
 
-```
+```sh
 $ docker-compose exec postgres psql -U postgres
 
 psql (10.4 (Debian 10.4-2.pgdg90+1))
@@ -116,7 +116,7 @@ postgres=# SELECT COUNT(*) FROM test; \watch
 
 1-line build command:
 
-```
+```sh
 $ docker-compose build \
     && docker-compose down -v \
     && docker-compose up -d \
