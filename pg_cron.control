@@ -1,0 +1,6 @@
+# pg_cron extension
+comment = 'Adds some cron feature and workers'
+default_version = '0.0.1'
+relocatable = true
+
+requires = 'pgcrypto'
