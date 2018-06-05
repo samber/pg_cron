@@ -3,7 +3,7 @@
 
 ## Why ?
 
-Just for fun ¯\_(ツ)_/¯
+Just for fun ¯\\_(ツ)_/¯
 
 I wanted to discover PostgreSQL extension API and pg background workers.
 
