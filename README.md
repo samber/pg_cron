@@ -114,7 +114,7 @@ postgres=# SELECT COUNT(*) FROM test; \watch
 
 ## Contributing
 
-Test command:
+1-line build command:
 
 ```
 $ docker-compose build \
