@@ -1,5 +1,5 @@
 
-# Postgresql extension: adding cron-like features
+# Postgresql extension: running periodic jobs
 
 ## Why ?
 
